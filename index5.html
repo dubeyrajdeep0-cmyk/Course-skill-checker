@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Course Skill Checker</title>
+
+<style>
+body{
+    font-family: Arial;
+    background-color:#f2f2f2;
+    text-align:center;
+}
+
+.container{
+    background:white;
+    padding:20px;
+    margin:150px auto;
+    width:1250px;
+    border-radius:10px;
+}
+
+button{
+    padding:15px;
+    background-color: black;
+    color:white;
+    border:none;
+    cursor:pointer;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Course & Skill Checker</h2>
+
+<p>Select Your Course:</p>
+<select id="course">
+<option value="">--Select Course--</option>
+<option value="btech">BTech</option>
+<option value="bca">BCA</option>
+<option value="design">Design</option>
+<option value="mba">MBA</option>
+<option value="bba">BBA</option>
+<option value="b pharma">B PHARMA</option>
+<option value="law">LAW</option>
+</select>
+
+<br><br>
+
+<p>Enter Your Skill:</p>
+<input type="text" id="skill" placeholder="eg. communication skills , drawing">
+
+<br><br>
+
+<button onclick="checkSkill()">Check Result</button>
+
+<p id="result"></p>
+
+</div>
+
+<script>
+
+function checkSkill(){
+
+var course = document.getElementById("course").value;
+var skill = document.getElementById("skill").value.toLowerCase();
+
+if(course=="" || skill==""){
+document.getElementById("result").innerHTML =
+"Please select course and enter skill!";
+return;
+}
+
+/* MATCH CONDITIONS */
+
+if(course=="btech" && (skill=="c++" || skill=="java" || skill=="python" ||skill=="math")){
+document.getElementById("result").innerHTML =
+"✅ Great! Your skill matches BTech.";
+}
+
+else if(course=="design" && (skill=="drawing" || skill=="creativity")){
+document.getElementById("result").innerHTML =
+"✅ Perfect! Your skill suits Design.";
+}
+
+else if(course=="bca" && (skill=="programming" || skill=="computer")){
+document.getElementById("result").innerHTML =
+"✅ Good! Your skill fits BCA.";
+}
+
+
+else if(course=="mba" &&(skill=="communication skills" ||
+ skill=="leadership" || 
+skill=="management" || 
+skill=="negotiation" || 
+skill=="networking")){
+document.getElementById("result").innerHTML =
+"✅ Great! Your skill matches MBa.";
+}
+
+else if(course=="bba" && (skill=="leadership skill" || skill=="teamwork" || skill=="business interest")){
+document.getElementById("result").innerHTML =
+"✅ Great! Your skill matches BBa.";
+}
+
+else if(course=="law" && (skill=="critical reading and comprehension" || skill==" analytical and logical reasoning"  || skill=="general knowledge and current affairs" || skill=="written and verbal communication " )){
+document.getElementById("result").innerHTML =
+"✅ Great! Your skill matches Law.";
+}
+
+else if(course=="b pharma" && (skill=="basic communication skills" || skill=="analytical and critical thinking" || skill=="computer literacy" )){
+document.getElementById("result").innerHTML =
+"✅ Great! Your skill matches B pharma.";
+}
+
+
+/* COURSE SUGGESTION LOGIC */
+
+else if(skill=="basic communication skills" || skill=="analytical and critical thinking" || skill=="computer literacy" ){
+document.getElementById("result").innerHTML =
+"❌ Skill mismatch! Suggestion 👉 B pharma course may suit you better.";
+}
+
+else if(skill=="critical reading and comprehension" || skill=="analytical and logical reasoning"  || skill=="general knowledge and current affairs" || skill=="written and verbal communication" ){
+document.getElementById("result").innerHTML =
+"❌ Skill mismatch! Suggestion 👉 Law course may suit you better.";
+}
+
+else if(skill=="leadership skill" || skill=="teamwork" || skill=="business interest"){
+document.getElementById("result").innerHTML =
+"❌ Skill mismatch! Suggestion 👉 bba course may suit you better.";
+}
+
+else if (skill=="communication skills" ||
+ skill=="leadership" ||
+skill=="management" ||
+ skill=="negotiation" || 
+skill=="networking"){
+document.getElementById("result").innerHTML =
+"❌ Skill mismatch! Suggestion 👉 mba course may suit you better.";
+}
+
+else if(skill=="drawing" || skill=="creativity"){
+document.getElementById("result").innerHTML =
+"❌ Skill mismatch! Suggestion 👉 Design course may suit you better.";
+}
+
+else if(skill=="c++" || skill == "java" || skill == "python" || skill=="programming"){
+document.getElementById("result").innerHTML =
+"❌ Skill mismatch! Suggestion 👉 BTech or BCA can be better for you.";
+}
+
+else if(skill=="math"){
+document.getElementById("result").innerHTML =
+"❌ Skill mismatch! Suggestion 👉 BTech is recommended.";
+}
+
+else{
+document.getElementById("result").innerHTML =
+"⚠️ Skill not in database. Try coding, drawing, math, creativity.";
+}
+}
+
+</script>
+
+</body>
+</html>
